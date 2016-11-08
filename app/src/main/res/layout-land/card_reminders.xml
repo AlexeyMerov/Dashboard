@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/tangerine"
+    app:cardCornerRadius="@dimen/corner_radius_main_elements"
+    app:cardPreventCornerOverlap="false"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/card_top_height"
+            android:textSize="@dimen/card_top_text_size"
+            android:text="@string/text_reminders"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/card_top_text_margin_left"
+            android:textColor="@color/white"
+            />
+
+        <FrameLayout
+            android:id="@+id/in_stock_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/card_top_height"
+            android:background="@drawable/rounded_bottom_corners"
+            >
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/loader_progress_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:indicator="BallPulse"
+                app:indicator_color="@color/hazel"
+                android:layout_gravity="center"
+                />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/remiderRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="colorGrey">#dedede</color>
+
+    <color name="baby_shit_green">#91981a</color>
+    <color name="petrol">#00695c</color>
+    <color name="red">#ff0000</color>
+    <color name="greyish_brown">#453e3e</color>
+    <color name="black">#000000</color>
+    <color name="black_two">#212121</color>
+    <color name="warm_grey">#989898</color>
+    <color name="greyish_brown_two">#3d3838</color>
+    <color name="hazel">#827717</color>
+    <color name="greyish_brown_three">#3c3434</color>
+    <color name="white_two">#eeeeee</color>
+    <color name="red_two">#d50000</color>
+    <color name="black_12">#1f000000</color>
+    <color name="white_three">#d7d7d7</color>
+    <color name="white_four">#f2f2f2</color>
+    <color name="white_five">#fafafa</color>
+    <color name="black_54">#8a000000</color>
+    <color name="white_six">#f8f8f8</color>
+    <color name="tangerine">#ff8f00</color>
+    <color name="pumpkin">#ee8500</color>
+    <color name="white_seven">#e3e3e3</color>
+    <color name="white_eight">#f1f1f1</color>
+    <color name="pumpkin_two">#ee6900</color>
+    <color name="black_87">#de000000</color>
+    <color name="white_nine">#f4f4f4</color>
+    <color name="white_ten">#d8d8d8</color>
+    <color name="white_undefined">#ececec</color>
+
+</resources>

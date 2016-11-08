@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Dashboard</string>
+    <string name="base_url">http://wine-cellar.biznestext.com</string>
+    <string name="text_reminders">НАПОМИНАНИЯ</string>
+    <string name="text_in">ПРИХОДЫ</string>
+    <string name="text_out">РАСХОДЫ</string>
+    <string name="text_wine_in_stock">ВИНО В НАЛИЧИИ</string>
+    <string name="text_total_bottles">ВСЕГО БУТЫЛОК</string>
+    <string name="main_topic_text">ДАШБОРД</string>
+    <string name="dashboard_top_button_text">ДОБАВИТЬ НОВОЕ ВИНО</string>
+    <string name="text_hint_login">Логин</string>
+    <string name="text_hint_password">Пароль</string>
+    <string name="text_enter_button">Начать работу</string>
+    <string name="text_enter_topic">Винный погреб</string>
+    <string name="text_news">НОВОСТИ</string>
+    <string name="text_statistic">СТАТИСТИКА</string>
+    <string name="text_navigation">НАВИГАЦИЯ</string>
+    <string name="text_dashboard">ДАШБОРД</string>
+    <string name="text_wine">ВИНО</string>
+    <string name="icon_description">Icon</string>
+
+    <string name="temp_text_total">8 888</string>
+    <string name="temp_total_bottles">7 853</string>
+    <string name="temp_inbox">24</string>
+    <string name="temp_date_reminder">10.11.2016 г. 11:00</string>
+    <string name="temp_count_reminder">2</string>
+    <string name="temp_reminder_wine_name">Damains Barons de Damains Barons de Damains Barons de</string>
+    <string name="temp_reminder_text">На подарок</string>
+    <string name="temp_turnover_date">11.11.11</string>
+    <string name="temp_turnover_wine_name">DashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboard</string>
+    <string name="temp_turnover_count_1">+288</string>
+    <string name="temp_turnover_count_2">+1</string>
+    <string name="temp_hello_world">HELLO WORLD</string>
+
+</resources>

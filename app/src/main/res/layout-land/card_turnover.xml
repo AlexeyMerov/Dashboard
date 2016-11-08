@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="3dp"
+        app:cardBackgroundColor="@color/petrol"
+        app:cardCornerRadius="@dimen/corner_radius_main_elements"
+        app:cardPreventCornerOverlap="false"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/in_stock_topic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/card_top_height"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/card_top_text_size"
+                        android:text="@string/text_in"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/card_top_text_margin_left"
+                        android:textColor="@color/white"
+                        />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/in_stock_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/in_stock_topic"
+                    android:background="@drawable/rounded_left_bottom_corner"
+                    >
+
+                    <com.wang.avi.AVLoadingIndicatorView
+                        android:id="@+id/loader_progress_turnover_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        app:indicator="BallPulse"
+                        app:indicator_color="@color/hazel"
+                        android:layout_gravity="center"
+                        />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/turnover_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/separator"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/in_topic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/card_top_height"
+                    >
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/in_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/in_topic"
+                    android:background="@color/white"
+                    >
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/petrol"
+                        />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/out_topic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/card_top_height"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/card_top_text_size"
+                        android:text="@string/text_out"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/card_top_text_margin_left"
+                        android:textColor="@color/white"
+                        />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/out_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/out_topic"
+                    android:background="@drawable/rounded_right_bottom_corner"
+                    >
+
+                    <com.wang.avi.AVLoadingIndicatorView
+                        android:id="@+id/loader_progress_turnover_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        app:indicator="BallPulse"
+                        app:indicator_color="@color/hazel"
+                        android:layout_gravity="center"
+                        />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/turnover_out"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
