@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="@dimen/card_top_height"
-            android:background="@drawable/rounded_bottom_corners"
+            android:background="@drawable/rounded_corners_bottom"
             >
 
             <com.wang.avi.AVLoadingIndicatorView

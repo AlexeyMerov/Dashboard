@@ -30,64 +30,85 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="@dimen/reminder_element_date_margin_start"
                     android:layout_marginTop="@dimen/reminder_element_date_top_margin"
+                    android:layout_marginStart="@dimen/reminder_element_date_margin_start"
                     android:textColor="@color/black_two"
                     android:text="@string/temp_date_reminder"
                     android:textSize="@dimen/reminder_element_date_text_size"
                     />
 
-                <ImageView
-                    android:id="@+id/reminder_icon"
-                    android:layout_width="@dimen/reminder_element_icon_width"
-                    android:layout_height="@dimen/reminder_element_icon_width"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="@dimen/reminder_element_icon_margin_start"
-                    android:layout_marginTop="@dimen/reminder_element_icon_margin_top"
-                    app:srcCompat="@drawable/ic_shape"
-                    android:contentDescription="@string/icon_description" />
-
-                <TextView
-                    android:id="@+id/reminder_count"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/reminder_element_count_text_size"
-                    android:text="@string/temp_count_reminder"
-                    android:maxLength="2"
-                    android:layout_toEndOf="@id/reminder_icon"
-                    android:layout_marginStart="@dimen/reminder_element_count_margin_start"
-                    android:layout_marginTop="@dimen/reminder_element_count_margin_top"
-                    android:textColor="@color/black_two"
-                    />
+                    android:layout_height="@dimen/dashboard_icon_size"
+                    android:layout_below="@id/reminder_date"
+                    android:layout_marginTop="@dimen/reminder_main_part_margin_top"
+                    android:layout_marginBottom="@dimen/reminder_main_part_margin_top"
+                    >
 
-                <TextView
-                    android:id="@+id/reminder_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/reminder_element_main_text_size"
-                    android:textStyle="bold"
-                    android:text="@string/temp_reminder_wine_name"
-                    android:lines="1"
-                    android:ellipsize="end"
-                    android:layout_marginStart="@dimen/reminder_element_main_text_margin_start"
-                    android:layout_marginEnd="@dimen/reminder_element_main_text_margin_end"
-                    android:layout_marginTop="@dimen/reminder_element_name_text_margin_top"
-                    android:textColor="@color/black_two"
-                    />
+                    <ImageView
+                        android:id="@+id/reminder_icon"
+                        android:layout_width="@dimen/dashboard_icon_size"
+                        android:layout_height="@dimen/dashboard_icon_size"
+                        app:srcCompat="@drawable/ic_shape"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/icon_description"
+                        android:paddingStart="@dimen/padding_for_icon"
+                        android:paddingEnd="@dimen/padding_for_icon"
+                        />
 
-                <TextView
-                    android:id="@+id/reminder_for"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/reminder_element_main_text_size"
-                    android:textStyle="italic"
-                    android:text="@string/temp_reminder_text"
-                    android:layout_below="@id/reminder_name"
-                    android:layout_marginStart="@dimen/reminder_element_main_text_margin_start"
-                    android:layout_marginEnd="@dimen/reminder_element_main_text_margin_end"
-                    android:layout_marginTop="@dimen/reminder_element_message_text_margin_top"
-                    android:textColor="@color/black_two"
-                    />
+                    <TextView
+                        android:id="@+id/reminder_count"
+                        android:layout_width="@dimen/reminder_element_count_text_width"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/reminder_element_count_text_size"
+                        android:text="@string/temp_count_reminder"
+                        android:maxLength="2"
+                        android:textColor="@color/black_two"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/reminder_element_count_margin_start"
+                        android:layout_toEndOf="@id/reminder_icon"
+                        android:layout_centerInParent="true"
+                        />
+
+                    <LinearLayout
+                        android:layout_toEndOf="@id/reminder_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/reminder_element_wine_name_text_margin_start"
+                        >
+
+                        <TextView
+                            android:id="@+id/reminder_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/reminder_element_wine_name_text_size"
+                            android:textStyle="bold"
+                            android:text="@string/temp_reminder_wine_name"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:layout_marginEnd="@dimen/reminder_element_wine_name_text_margin_end"
+                            android:textColor="@color/black_two"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:id="@+id/reminder_for"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/reminder_element_wine_name_text_size"
+                            android:textStyle="italic"
+                            android:text="@string/temp_reminder_text"
+                            android:layout_marginEnd="@dimen/reminder_element_wine_name_text_margin_end"
+                            android:textColor="@color/black_two"
+                            android:layout_weight="1"
+                            android:gravity="bottom"
+                            />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
 
             </RelativeLayout>
 

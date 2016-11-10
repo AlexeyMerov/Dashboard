@@ -54,6 +54,7 @@
                 android:id="@+id/turnover_text"
                 android:layout_marginTop="@dimen/turnover_text_margin"
                 android:layout_marginStart="@dimen/turnover_text_margin"
+                android:layout_marginEnd="@dimen/turnover_text_margin"
                 android:layout_below="@id/iconDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,6 +62,7 @@
                 android:textSize="@dimen/turnover_text_size"
                 android:text="@string/temp_turnover_wine_name"
                 android:lines="2"
+                android:ellipsize="end"
                 />
 
             <LinearLayout
@@ -70,7 +72,6 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="@dimen/turnover_count_element_margin_out"
                 android:layout_marginTop="@dimen/turnover_count_element_margin_out"
-                android:layout_marginBottom="@dimen/turnover_count_element_margin_out"
                 android:gravity="center_vertical"
                 >
 
@@ -82,22 +83,27 @@
                     app:cardCornerRadius="@dimen/element_radius"
                     app:cardPreventCornerOverlap="false"
                     android:layout_marginEnd="@dimen/turnover_count_element_margin_between"
+                    android:alpha="0.75"
                     >
 
                     <LinearLayout
                         android:layout_width="@dimen/turnover_count_element_width"
-                        android:layout_height="@dimen/turnover_count_element_height"
+                        android:layout_height="@dimen/dashboard_icon_size"
                         android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         >
 
                         <ImageView
                             android:id="@+id/turnover_box_icon"
-                            android:layout_width="@dimen/turnover_icon_height"
-                            android:layout_height="@dimen/turnover_icon_height"
+                            android:layout_width="@dimen/dashboard_icon_size"
+                            android:layout_height="@dimen/dashboard_icon_size"
                             app:srcCompat="@drawable/ic_boxes_pictogram"
                             android:layout_gravity="center"
                             android:layout_margin="@dimen/turnover_count_element_margin"
-                            android:contentDescription="@string/icon_description" />
+                            android:contentDescription="@string/icon_description"
+                            android:paddingStart="@dimen/padding_for_icon"
+                            android:paddingEnd="@dimen/padding_for_icon"
+                            />
 
                         <TextView
                             android:id="@+id/turnover_box_count"
@@ -107,6 +113,7 @@
                             android:textColor="@color/black_two"
                             android:gravity="center"
                             android:textSize="@dimen/turnover_count_element_text_size"
+                            android:textStyle="bold"
                             />
 
                     </LinearLayout>
@@ -120,25 +127,27 @@
                     app:cardBackgroundColor="@color/colorGrey"
                     app:cardCornerRadius="@dimen/element_radius"
                     app:cardPreventCornerOverlap="false"
+                    android:alpha="0.75"
                     >
 
                     <LinearLayout
                         android:layout_width="@dimen/turnover_count_element_width"
-                        android:layout_height="@dimen/turnover_count_element_height"
+                        android:layout_height="@dimen/dashboard_icon_size"
                         android:orientation="horizontal"
+                        android:layout_margin="5dp"
                         >
 
                         <ImageView
                             android:id="@+id/turnover_bottle_icon"
-                            android:layout_width="@dimen/turnover_icon_height"
-                            android:layout_height="match_parent"
+                            android:layout_width="@dimen/dashboard_icon_size"
+                            android:layout_height="@dimen/dashboard_icon_size"
                             app:srcCompat="@drawable/ic_shape"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginStart="@dimen/turnover_count_element_margin"
-                            android:layout_marginEnd="@dimen/turnover_count_element_margin"
+                            android:layout_margin="@dimen/turnover_count_element_margin"
                             android:layout_gravity="center"
-                            android:contentDescription="@string/icon_description" />
+                            android:contentDescription="@string/icon_description"
+                            android:paddingStart="@dimen/padding_for_icon"
+                            android:paddingEnd="@dimen/padding_for_icon"
+                            />
 
                         <TextView
                             android:id="@+id/turnover_bottle_count"
@@ -147,8 +156,8 @@
                             android:text="@string/temp_turnover_count_1"
                             android:textColor="@color/black_two"
                             android:gravity="center"
-
                             android:textSize="@dimen/turnover_count_element_text_size"
+                            android:textStyle="bold"
                             />
 
                     </LinearLayout>

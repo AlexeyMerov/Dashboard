@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardElevation="3dp"
     app:cardBackgroundColor="@color/greyish_brown"
@@ -14,6 +14,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         >
 
         <TextView
@@ -27,10 +28,9 @@
             />
 
         <FrameLayout
-            android:id="@+id/in_stock_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/rounded_bottom_corners"
+            android:background="@drawable/rounded_corners_bottom"
             android:gravity="center"
             android:layout_marginTop="@dimen/card_top_height"
             >
@@ -53,7 +53,6 @@
                 android:divider="@drawable/divider_vertical"
                 android:showDividers="middle"
                 android:layout_gravity="center"
-                android:visibility="invisible"
                 tools:ignore="UselessParent">
 
                 <LinearLayout
@@ -68,7 +67,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="@dimen/in_stock_total_bottles_big_text_size"
+                        android:textSize="@dimen/in_stock_total_bottles_value_text_size"
                         android:textColor="@color/black_two"
                         />
 
@@ -77,6 +76,7 @@
                         android:layout_height="match_parent"
                         android:text="@string/text_total_bottles"
                         android:textSize="@dimen/in_stock_total_text_size"
+                        android:gravity="center"
                         android:textColor="@color/black_two"
                         />
 
@@ -86,35 +86,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_gravity="center"
                     >
 
                     <LinearLayout
-                        android:layout_width="@dimen/in_stock_icon_height"
+                        android:layout_width="@dimen/dashboard_icon_size"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_marginStart="@dimen/in_stock_margin_divider"
+                        android:layout_gravity="center"
                         >
 
                         <ImageView
-                            android:layout_width="@dimen/in_stock_icon_height"
-                            android:layout_height="match_parent"
+                            android:layout_width="@dimen/dashboard_icon_size"
+                            android:layout_height="@dimen/dashboard_icon_size"
                             app:srcCompat="@drawable/ic_boxes_pictogram"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:paddingBottom="@dimen/in_stock_right_part_top_bottom_padding"
                             android:paddingTop="@dimen/in_stock_right_part_top_bottom_padding"
-                            android:contentDescription="@string/icon_description" />
+                            android:contentDescription="@string/icon_description"
+                            android:paddingStart="@dimen/padding_for_icon"
+                            android:paddingEnd="@dimen/padding_for_icon"
+                            />
 
                         <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="@dimen/in_stock_icon_height"
-                            android:layout_height="match_parent"
+                            android:layout_width="@dimen/dashboard_icon_size"
+                            android:layout_height="@dimen/dashboard_icon_size"
                             app:srcCompat="@drawable/ic_shape"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:paddingTop="@dimen/in_stock_right_part_top_bottom_padding"
                             android:paddingBottom="@dimen/in_stock_right_part_top_bottom_padding"
-                            android:contentDescription="@string/icon_description" />
+                            android:paddingStart="@dimen/padding_for_icon"
+                            android:paddingEnd="@dimen/padding_for_icon"
+                            android:contentDescription="@string/icon_description"
+
+                            />
 
                     </LinearLayout>
 
@@ -132,7 +140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:textSize="@dimen/in_stock_total_box_text_size"
+                            android:textSize="@dimen/in_stock_details_text_size"
                             android:gravity="center"
                             android:textColor="@color/black_two"
                             android:layout_gravity="center"
@@ -143,7 +151,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textSize="@dimen/in_stock_total_bottles_text_size"
+                            android:textSize="@dimen/in_stock_details_text_size"
                             android:paddingTop="@dimen/in_stock_right_part_top_bottom_padding"
                             android:textColor="@color/black_two"
                             android:gravity="center"

@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/in_stock_topic"
-                    android:background="@drawable/rounded_left_bottom_corner"
+                    android:background="@drawable/rounded_corner_bottom_left"
                     >
 
                     <com.wang.avi.AVLoadingIndicatorView
@@ -135,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/out_topic"
-                    android:background="@drawable/rounded_right_bottom_corner"
+                    android:background="@drawable/rounded_corner_bottom_right"
                     >
 
                     <com.wang.avi.AVLoadingIndicatorView
