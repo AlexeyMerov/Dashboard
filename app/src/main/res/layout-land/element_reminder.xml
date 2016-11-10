@@ -7,7 +7,7 @@
     android:layout_marginTop="@dimen/element_top_margin"
     android:layout_marginLeft="@dimen/element_side_margin"
     android:layout_marginRight="@dimen/element_side_margin"
-    app:cardElevation="5dp"
+    app:cardElevation="2dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/element_radius"
     app:cardPreventCornerOverlap="false"
@@ -42,6 +42,7 @@
                     android:layout_height="@dimen/dashboard_icon_size"
                     android:layout_below="@id/reminder_date"
                     android:layout_marginTop="@dimen/reminder_main_part_margin_top"
+                    android:layout_marginStart="@dimen/reminder_element_count_margin_start"
                     android:layout_marginBottom="@dimen/reminder_main_part_margin_top"
                     >
 

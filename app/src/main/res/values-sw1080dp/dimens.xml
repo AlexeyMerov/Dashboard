@@ -47,11 +47,10 @@
     <dimen name="reminder_element_wine_name_text_margin_top">64dp</dimen>
 
     <dimen name="turnover_element_height">240dp</dimen>
-    <dimen name="turnover_icon_height">40dp</dimen>
+    <dimen name="turnover_icon_height">35dp</dimen>
     <dimen name="turnover_data_margin_start">20dp</dimen>
     <dimen name="turnover_text_margin">20dp</dimen>
     <dimen name="turnover_count_element_margin">10dp</dimen>
-    <dimen name="turnover_count_element_margin_out">20dp</dimen>
     <dimen name="turnover_count_element_margin_between">12dp</dimen>
     <dimen name="turnover_count_element_text_size">24sp</dimen>
     <dimen name="turnover_text_size">20sp</dimen>

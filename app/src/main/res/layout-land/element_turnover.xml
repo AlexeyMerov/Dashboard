@@ -8,7 +8,7 @@
     android:layout_marginTop="@dimen/element_top_margin"
     android:layout_marginLeft="@dimen/element_top_margin"
     android:layout_marginRight="@dimen/element_top_margin"
-    app:cardElevation="5dp"
+    app:cardElevation="2dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/element_radius"
     app:cardPreventCornerOverlap="false"
@@ -70,8 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginStart="@dimen/turnover_count_element_margin_out"
-                android:layout_marginTop="@dimen/turnover_count_element_margin_out"
+                android:layout_marginStart="@dimen/turnover_text_margin"
+                android:layout_marginTop="@dimen/turnover_text_margin"
                 android:gravity="center_vertical"
                 >
 
@@ -79,11 +79,11 @@
                     android:id="@+id/turnover_box_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/colorGrey"
+                    app:cardBackgroundColor="@color/white_four"
                     app:cardCornerRadius="@dimen/element_radius"
+                    app:cardElevation="0dp"
                     app:cardPreventCornerOverlap="false"
                     android:layout_marginEnd="@dimen/turnover_count_element_margin_between"
-                    android:alpha="0.75"
                     >
 
                     <LinearLayout
@@ -124,10 +124,10 @@
                     android:id="@+id/turnover_bottle_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/colorGrey"
+                    app:cardBackgroundColor="@color/white_four"
                     app:cardCornerRadius="@dimen/element_radius"
+                    app:cardElevation="0dp"
                     app:cardPreventCornerOverlap="false"
-                    android:alpha="0.75"
                     >
 
                     <LinearLayout

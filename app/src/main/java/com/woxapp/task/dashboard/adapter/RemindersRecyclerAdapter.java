@@ -84,10 +84,10 @@ public class RemindersRecyclerAdapter extends RecyclerView.Adapter<RemindersRecy
 
         holder.date.setText(resultDate);
 
-        int color = R.drawable.rounded_corners_reminder_marker_red;
-        if (reminder.getReminderType() == 1) color = R.drawable.rounded_corners_reminder_marker_green;
+        int marker = R.drawable.rounded_corners_reminder_marker_red;
+        if (reminder.getReminderType() == 1) marker = R.drawable.rounded_corners_reminder_marker_green;
 
-        holder.colorReminder.setBackgroundResource(color);
+        holder.colorReminder.setBackgroundResource(marker);
 
     }
 

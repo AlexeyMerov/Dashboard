@@ -2,8 +2,8 @@
     <string name="app_name">Dashboard</string>
     <string name="base_url">http://wine-cellar.biznestext.com</string>
     <string name="text_reminders">НАПОМИНАНИЯ</string>
-    <string name="text_in">ПРИХОДЫ</string>
-    <string name="text_out">РАСХОДЫ</string>
+    <string name="text_in">ПРИХОД</string>
+    <string name="text_out">РАСХОД</string>
     <string name="text_wine_in_stock">ВИНО В НАЛИЧИИ</string>
     <string name="text_total_bottles">ВСЕГО БУТЫЛОК</string>
     <string name="main_topic_text">ДАШБОРД</string>

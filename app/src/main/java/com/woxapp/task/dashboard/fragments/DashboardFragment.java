@@ -54,7 +54,7 @@ public class DashboardFragment extends Fragment {
 
     private Dashboard mDashboard;
 
-    private RealmList<Reminder> mListReminder;
+    private List<Reminder> mListReminder;
     private RemindersRecyclerAdapter mReminderAdapter;
 
     private List<Turnover> mListTurnover;
@@ -121,8 +121,8 @@ public class DashboardFragment extends Fragment {
 
             loaderProgressTurnOverRight.setVisibility(View.GONE);
             mTurnoverAdapterOut = new TurnoversRecyclerAdapter(
-                    negative, ContextCompat.getColor(getContext(),
-                    R.color.red_two));
+                    negative,
+                    ContextCompat.getColor(getContext(), R.color.red_two));
             turnoverOut.setAdapter(mTurnoverAdapterOut);
             turnoverOut.setHasFixedSize(false);
             turnoverOut.setLayoutManager(new LinearLayoutManager(

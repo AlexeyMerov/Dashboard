@@ -248,8 +248,6 @@
         android:orientation="vertical"
         >
 
-        <include layout="@layout/fragment_dashboard"/>
-
     </LinearLayout>
 
 </RelativeLayout>

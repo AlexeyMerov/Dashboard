@@ -35,7 +35,7 @@
     <dimen name="reminder_element_height">110dp</dimen>
     <dimen name="reminder_element_marker_width">10dp</dimen>
     <dimen name="reminder_element_date_top_margin">14dp</dimen>
-    <dimen name="reminder_element_date_margin_start">12dp</dimen>
+    <dimen name="reminder_element_date_margin_start">18dp</dimen>
     <dimen name="reminder_element_date_text_size">14sp</dimen>
     <dimen name="reminder_main_part_margin_top">15dp</dimen>
     <dimen name="reminder_element_count_text_size">22sp</dimen>
@@ -46,14 +46,13 @@
     <dimen name="reminder_element_wine_name_text_margin_end">8dp</dimen>
     <dimen name="reminder_element_wine_name_text_margin_top">20dp</dimen>
 
-    <dimen name="turnover_element_height">185dp</dimen>
-    <dimen name="turnover_icon_height">35dp</dimen>
+    <dimen name="turnover_element_height">165dp</dimen>
+    <dimen name="turnover_icon_height">25dp</dimen>
     <dimen name="turnover_data_margin_start">15dp</dimen>
     <dimen name="turnover_data_text_size">18sp</dimen>
-    <dimen name="turnover_text_margin">15dp</dimen>
+    <dimen name="turnover_text_margin">10dp</dimen>
     <dimen name="turnover_text_size">16sp</dimen>
     <dimen name="turnover_count_element_margin">7dp</dimen>
-    <dimen name="turnover_count_element_margin_out">15dp</dimen>
     <dimen name="turnover_count_element_margin_between">8dp</dimen>
     <dimen name="turnover_count_element_text_size">22sp</dimen>
     <dimen name="turnover_count_element_width">120dp</dimen>
