@@ -18,7 +18,9 @@ import com.woxapp.task.dashboard.fragments.TempFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ * Main activity which contains left menu and process fragments on the right
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.left_menu_dashboard) View menuDashboard;
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initComponents();
     }
 
+    /**
+     * Sets listeners for all menu elements and open dashboard fragment
+     */
     private void initComponents() {
 
         mChosenElement = findViewById(R.id.left_menu_dashboard);
@@ -67,6 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    /**
+     * Changes fragments depending on the selected menu element
+     *
+     * @param v Menu elements
+     */
     @SuppressLint("CommitTransaction")
     @Override
     public void onClick(View v) {

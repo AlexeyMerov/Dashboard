@@ -24,6 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.RealmConfiguration;
 
+/**
+ * First screen where an user can log in
+ */
 public class EnterActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.enter_button) Button button;
@@ -35,12 +38,14 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.loginError) TextView loginError;
 
 
+    /** Register this class for EvenBus */
     @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
     }
 
+    /** Unregister this class for EvenBus */
     @Override
     public void onStop() {
         super.onStop();
@@ -54,6 +59,15 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_enter);
         ButterKnife.bind(this);
 
+        initLayoutComponents();
+        initDatabase();
+    }
+
+    /**
+     * Initializes layout components.
+     * Adds listeners which clear error message if user taps on textViews
+     */
+    private void initLayoutComponents() {
         loaderProgress.setVisibility(View.INVISIBLE);
 
         button.setOnClickListener(this);
@@ -83,7 +97,10 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
 
+
+    private void initDatabase() {
         RealmConfiguration realmConfig = new RealmConfiguration
                 .Builder(this)
                 .deleteRealmIfMigrationNeeded()
@@ -95,9 +112,13 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
             Intent loginSuccessful = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(loginSuccessful);
         }
-
     }
 
+    /**
+     * Checks entered data and sends auth request
+     *
+     * @param v Button for login
+     */
     @Override
     public void onClick(View v) {
 
@@ -121,6 +142,12 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    /**
+     * Get response and start new activity if successful.
+     * Or handles errors depending on the code and messages.
+     *
+     * @param event Auth response with answer ode and message
+     */
     @Subscribe
     public void onEvent(AuthResponseEvent event) {
 

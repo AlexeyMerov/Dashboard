@@ -15,23 +15,21 @@ import com.wang.avi.AVLoadingIndicatorView;
 import com.woxapp.task.dashboard.R;
 import com.woxapp.task.dashboard.adapter.RemindersRecyclerAdapter;
 import com.woxapp.task.dashboard.adapter.TurnoversRecyclerAdapter;
-import com.woxapp.task.dashboard.pojo.Dashboard;
 import com.woxapp.task.dashboard.pojo.Reminder;
 import com.woxapp.task.dashboard.pojo.Turnover;
 import com.woxapp.task.dashboard.db.RealmHelper;
 import com.woxapp.task.dashboard.pojo.User;
+import com.woxapp.task.dashboard.pojo.WineInStock;
 import com.woxapp.task.dashboard.retrofit.DashboardResponseEvent;
 import com.woxapp.task.dashboard.retrofit.RetrofitHelper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmList;
+import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 
 public class DashboardFragment extends Fragment {
 
@@ -52,16 +50,19 @@ public class DashboardFragment extends Fragment {
 
     @BindView(R.id.addButton) View addButton;
 
-    private Dashboard mDashboard;
-
-    private List<Reminder> mListReminder;
+    private RealmResults<Reminder> mListReminder;
     private RemindersRecyclerAdapter mReminderAdapter;
 
-    private List<Turnover> mListTurnover;
-    private TurnoversRecyclerAdapter mTurnoverAdapterIn;
-    private TurnoversRecyclerAdapter mTurnoverAdapterOut;
+    private RealmResults<Turnover> mListPositiveTurnover;
+    private RealmResults<Turnover> mListNegativeTurnover;
+    private TurnoversRecyclerAdapter mPositiveTurnoverAdapter;
+    private TurnoversRecyclerAdapter mNegativeTurnoverAdapter;
 
 
+    /**
+     * Registers the fragment for the eventBus.
+     * Get user from DB and sends request to the server with user data.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,64 +72,104 @@ public class DashboardFragment extends Fragment {
         if (!EventBus.getDefault().isRegistered(this)) EventBus.getDefault().register(this);
 
         User user = RealmHelper.getUser();
+        RealmHelper.clearDashboard(); // temp solution
         RetrofitHelper.getDashboardData(user.getImei() ,user.getAccessToken(), user.getCellarId());
+
+        initReminderRecycler();
+        initPositiveTurnoverRecycler();
+        initNegativeTurnoverRecycler();
 
         return view;
     }
 
+    /**
+     * Get reminders list from DB.
+     * Creates adapter and sets it recyclerView.
+     * Add listeners for data changing.
+     */
+    private void initReminderRecycler() {
+        mListReminder = RealmHelper.getReminders();
+        mReminderAdapter = new RemindersRecyclerAdapter(mListReminder);
+        reminderRecyclerView.setAdapter(mReminderAdapter);
+        reminderRecyclerView.setHasFixedSize(false);
+        reminderRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL,
+                false));
+
+        mListReminder.addChangeListener(new RealmChangeListener<RealmResults<Reminder>>() {
+            @Override
+            public void onChange(RealmResults<Reminder> element) {
+                mReminderAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * Get positive turnovers list from DB.
+     * Creates adapter and sets it recyclerView.
+     * Add listeners for data changing.
+     */
+    private void initPositiveTurnoverRecycler() {
+        mListPositiveTurnover = RealmHelper.getPositiveTurnover();
+        mPositiveTurnoverAdapter = new TurnoversRecyclerAdapter(mListPositiveTurnover,
+                ContextCompat.getColor(getContext(), R.color.baby_shit_green));
+        turnoverIn.setAdapter(mPositiveTurnoverAdapter);
+        turnoverIn.setHasFixedSize(false);
+        turnoverIn.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL,
+                false));
+
+        mListPositiveTurnover.addChangeListener(new RealmChangeListener<RealmResults<Turnover>>() {
+            @Override
+            public void onChange(RealmResults<Turnover> element) {
+                mPositiveTurnoverAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * Get negative turnovers list from DB.
+     * Creates adapter and sets it recyclerView.
+     * Add listeners for data changing.
+     */
+    private void initNegativeTurnoverRecycler() {
+        mListNegativeTurnover = RealmHelper.getNegativeTurnover();
+        mNegativeTurnoverAdapter = new TurnoversRecyclerAdapter(mListNegativeTurnover,
+                ContextCompat.getColor(getContext(), R.color.red_two));
+        turnoverOut.setAdapter(mNegativeTurnoverAdapter);
+        turnoverOut.setHasFixedSize(false);
+        turnoverOut.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL,
+                false));
+
+        mListNegativeTurnover.addChangeListener(new RealmChangeListener<RealmResults<Turnover>>() {
+            @Override
+            public void onChange(RealmResults<Turnover> element) {
+                mNegativeTurnoverAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * Get response from retrofit.
+     * If successful sets InStock values.
+     *
+     * @param event Event for dashboard response
+     */
     @Subscribe
     public void onEvent(DashboardResponseEvent event) {
-
         if (event.getCode() == 200) {
-            mDashboard = RealmHelper.getDashboard();
+            WineInStock wineInStock = RealmHelper.getWineInStock();
 
-            countBottle.setText(String.valueOf(mDashboard.getWineInStock().getTotal()));
-            rightCountBox.setText(String.valueOf(mDashboard.getWineInStock().getInbox()));
-            rightCountBottle.setText(String.valueOf(mDashboard.getWineInStock().getBottle()));
+            countBottle.setText(String.valueOf(wineInStock.getTotal()));
+            rightCountBox.setText(String.valueOf(wineInStock.getInbox()));
+            rightCountBottle.setText(String.valueOf(wineInStock.getBottle()));
             loaderProgressInStock.setVisibility(View.GONE);
             containerInStock.setVisibility(View.VISIBLE);
 
             loaderProgressReminder.setVisibility(View.GONE);
-            mListReminder = mDashboard.getReminders();
-            mReminderAdapter = new RemindersRecyclerAdapter(mListReminder);
-            reminderRecyclerView.setAdapter(mReminderAdapter);
-            reminderRecyclerView.setHasFixedSize(false);
-            reminderRecyclerView.setLayoutManager(new LinearLayoutManager(
-                    getActivity(),
-                    LinearLayoutManager.VERTICAL,
-                    false));
-
-            mListTurnover = mDashboard.getTurnovers();
-
-            List<Turnover> positive = new ArrayList<>();
-            List<Turnover> negative = new ArrayList<>();
-
-            for (Turnover t : mListTurnover) {
-                if (t.getStatusId() == 0)  positive.add(t);
-                else negative.add(t);
-            }
-
             loaderProgressTurnoverLeft.setVisibility(View.GONE);
-            mTurnoverAdapterIn = new TurnoversRecyclerAdapter(
-                    positive,
-                    ContextCompat.getColor(getContext(), R.color.baby_shit_green));
-            turnoverIn.setAdapter(mTurnoverAdapterIn);
-            turnoverIn.setHasFixedSize(false);
-            turnoverIn.setLayoutManager(new LinearLayoutManager(
-                    getActivity(),
-                    LinearLayoutManager.VERTICAL,
-                    false));
-
             loaderProgressTurnOverRight.setVisibility(View.GONE);
-            mTurnoverAdapterOut = new TurnoversRecyclerAdapter(
-                    negative,
-                    ContextCompat.getColor(getContext(), R.color.red_two));
-            turnoverOut.setAdapter(mTurnoverAdapterOut);
-            turnoverOut.setHasFixedSize(false);
-            turnoverOut.setLayoutManager(new LinearLayoutManager(
-                    getActivity(),
-                    LinearLayoutManager.VERTICAL,
-                    false));
 
         }
 
